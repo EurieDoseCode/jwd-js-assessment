@@ -40,10 +40,20 @@ window.addEventListener('DOMContentLoaded', () => {
       a: 3,
     },
     {
-      q: 'What is the capital of Australia',
+      q: 'What is the capital of Australia?',
       o: ['Sydney', 'Canberra', 'Melbourne', 'Perth'],
       a: 1,
     },
+    {
+      q: 'What is the capital of Philippines?',
+      o: ['Manila','Panay','Cebu','Lake Sebu'],
+      a: 0,
+    },
+    {
+      q: 'what is the best anime in the world?',
+      o: ['Attack On Titan','The Promised Neverland','Hero Academia','Chainsaw Man'],
+      a: 3,
+    }
   ];
 
   // function to Display the quiz questions and answers from the object
@@ -76,10 +86,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
         if (quizItem.a == i) {
           //change background color of li element here
-        }
+          liElement.style.backgroundColor = 'green'
+        } else {
+          liElement.style.backgroundColor = 'rgba(255,0,0,0.4)'
+      } 
 
         if (radioElement.checked) {
           // code for task 1 goes here
+          score ++
         }
       }
     });
@@ -87,4 +101,18 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // call the displayQuiz function
   displayQuiz();
+
+  let btnSubmit = document.querySelector('#btnSubmit');
+  btnSubmit.addEventListener('click', calculateScore)
+
+
+  setInterval(myFunction, 1000);
+
+function myFunction() {
+  let d = new Date();
+  document.getElementById("demo").innerHTML="Expired";
+  d.getHours() + ":" +
+  d.getMinutes() + ":" +
+  d.getSeconds();
+}
 });
